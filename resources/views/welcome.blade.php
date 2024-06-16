@@ -13,7 +13,7 @@ initial-scale=1.0">
 <body>
     <div class="container m-5">
        <a href="" class="btn btn-success">
-            Tes
+            Tes develope
        </a>
     </div>
     @vite('resources/js/app.js')
