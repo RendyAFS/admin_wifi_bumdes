@@ -2,18 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pelanggan;
 use PDF;
+use App\Models\Pelanggan;
 use Illuminate\Http\Request;
 
-class PdfController extends Controller
+class PelangganController extends Controller
 {
-    public function viewpdf(){
+    public function viewpdf()
+    {
         $pelanggans = Pelanggan::orderBy('status', 'asc')->get();
 
-        return view ('admin.download-pdf', compact('pelanggans'));
+        return view('admin.download-pdf', compact('pelanggans'));
     }
-    public function downloadpdf(){
+    public function downloadpdf()
+    {
         $pelanggans = Pelanggan::orderBy('status', 'asc')->get();
 
 

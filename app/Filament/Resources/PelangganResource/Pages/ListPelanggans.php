@@ -6,10 +6,11 @@ use App\Filament\Resources\PelangganResource;
 use App\Models\Pelanggan;
 use Filament\Actions;
 use Filament\Actions\CreateAction;
-use Filament\Pages\Actions\PDFAction;
 use Filament\Resources\Pages\ListRecords;
 use Filament\Resources\Components\Tab;
 use Illuminate\Database\Eloquent\Builder;
+use Filament\Actions\Action;
+use Filament\Notifications\Notification;
 
 class ListPelanggans extends ListRecords
 {
@@ -20,24 +21,46 @@ class ListPelanggans extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            PDFAction::make()
-                ->icon('heroicon-m-document')
-                ->url(fn()=> route('download.pdf')),
-            // UpdateJatuhTempoAction::make()
-            //     ->icon('heroicon-m-document')
-            //     ->url(fn()=> route('download.pdf')),
+            Action::make('Reset')
+            ->icon('heroicon-m-arrow-path')
+            ->action(function () {
+                // Your logic to reset data
+                Pelanggan::query()->update([
+                    'nominal_bayar' => '',
+                    'tgl_bayar' => '',
+                    'keterangan' => '',
+                    'status' => 'Belum Bayar'
+                ]);
+
+                // Optionally return a response
+                Notification::make()
+                    ->title('Data berhasil tereset.')
+                    ->success()
+                    ->send();
+            })
+            ->color('danger')
+            ->requiresConfirmation()
+            ->modalHeading('Reset Data')
+            ->modalDescription('Apakah yakin reset data? data tidak bisa dikembalikan.')
+            ->modalSubmitActionLabel('Ya, reset data'),
+
+            Action::make('Download')
+                ->icon('heroicon-m-arrow-down-circle')
+                ->url(fn () => route('download.pdf')),
             CreateAction::make()
                 ->label("Pelanggan")
                 ->icon('heroicon-m-user-plus')
                 ->color('success'),
-
-            // Actions\ButtonAction::make(),
         ];
     }
+
+
+
     public function getTabs(): array
     {
         return [
-            'Semua' => Tab::make(),
+            '' => Tab::make()
+                ->icon('heroicon-m-squares-2x2'),
             'Belum Bayar' => Tab::make()
                 ->modifyQueryUsing(fn (Builder $query) => $query->where('status', 'Belum Bayar'))
                 ->badge(Pelanggan::query()->where('status', 'Belum Bayar')->count())
@@ -46,6 +69,10 @@ class ListPelanggans extends ListRecords
                 ->modifyQueryUsing(fn (Builder $query) => $query->where('status', 'Sudah Bayar'))
                 ->badge(Pelanggan::query()->where('status', 'Sudah Bayar')->count())
                 ->badgeColor('success'),
+            'Cicil' => Tab::make()
+                ->modifyQueryUsing(fn (Builder $query) => $query->where('status', 'Cicil'))
+                ->badge(Pelanggan::query()->where('status', 'Cicil')->count())
+                ->badgeColor('warning'),
         ];
     }
 }

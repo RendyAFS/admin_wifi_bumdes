@@ -8,24 +8,29 @@
     <title>Data Bulanan Pembayaran Wifi</title>
     <style>
         html {
-            font-size: 14px; /* Increased font size for better readability */
+            font-size: 14px;
+            /* Increased font size for better readability */
         }
 
         .table {
             border-collapse: collapse;
             width: 100%;
-            margin-top: 20px; /* Added margin for spacing */
+            margin-top: 20px;
+            /* Added margin for spacing */
         }
 
         .table-bordered th,
         .table-bordered td {
-            padding: 10px; /* Increased padding for better spacing */
+            padding: 10px;
+            /* Increased padding for better spacing */
             border: 1px solid black;
-            text-align: left; /* Ensured text alignment for better readability */
+            text-align: left;
+            /* Ensured text alignment for better readability */
         }
 
         .table-bordered th {
-            background-color: #f2f2f2; /* Added background color for table header */
+            background-color: #f2f2f2;
+            /* Added background color for table header */
         }
 
         .subtitle {
@@ -37,12 +42,18 @@
         }
 
         h1 {
-            text-align: center; /* Centered the header text */
+            text-align: center;
+            /* Centered the header text */
         }
 
         .download-date {
             text-align: right;
             margin-top: 20px;
+        }
+
+        .table-bordered th {
+            text-align: center;
+            /* Center text in table headers */
         }
     </style>
 </head>
@@ -54,17 +65,19 @@
             <tr>
                 <th>No.</th>
                 <th>Nama Pelanggan</th>
-                <th>Tanggal Jatuh Tempo</th>
+                <th>Nominal Bayar</th>
+                <th>Tanggal bayar</th>
                 <th>Status</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($pelanggans as $index => $pelanggan)
                 <tr>
-                    <td>{{ $index + 1 }}.</td>
-                    <td>{{ $pelanggan->nama_pelanggan }}</td>
-                    <td>{{ $pelanggan->jatuh_tempo }}</td>
-                    <td>{{ $pelanggan->status }}</td>
+                    <td style="text-align: center; width:5%">{{ $index + 1 }}.</td>
+                    <td style="width: 25%">{{ $pelanggan->nama_pelanggan }}</td>
+                    <td style="text-align: center;width: 25%">{{ $pelanggan->nominal_bayar }}</td>
+                    <td style="text-align: center;width: 25%">{{ $pelanggan->tgl_bayar }}</td>
+                    <td style="text-align: center;width: 20%">{{ $pelanggan->status }}</td>
                 </tr>
             @endforeach
         </tbody>
