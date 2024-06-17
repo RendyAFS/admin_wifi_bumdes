@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\PdfController;
+use App\Http\Controllers\PelangganController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,5 +18,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/download-pdf', [PdfController::class, 'downloadpdf'])->name('download.pdf');
-Route::get('/view-pdf', [PdfController::class, 'viewpdf'])->name('view.pdf');
+Route::get('/download-pdf', [PelangganController::class, 'downloadpdf'])->name('download.pdf');
+Route::get('/view-pdf', [PelangganController::class, 'viewpdf'])->name('view.pdf');

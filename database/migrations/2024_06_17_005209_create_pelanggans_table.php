@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('pelanggans', function (Blueprint $table) {
             $table->id();
             $table->string('nama_pelanggan');
-            $table->string('no_hp');
-            $table->string('alamat');
+            $table->string('nominal_bayar')->nullable();
+            $table->string('tgl_bayar')->nullable();
             $table->string('status');
-            $table->date('jatuh_tempo');
+            $table->string('keterangan')->nullable();
             $table->timestamps();
         });
     }

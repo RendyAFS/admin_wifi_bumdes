@@ -4,8 +4,6 @@ namespace App\Filament\Resources\PelangganResource\Pages;
 
 use App\Filament\Resources\PelangganResource;
 use Filament\Actions;
-use Filament\Actions\DeleteAction;
-use Filament\Actions\ViewAction;
 use Filament\Resources\Pages\EditRecord;
 
 class EditPelanggan extends EditRecord
@@ -15,8 +13,13 @@ class EditPelanggan extends EditRecord
     protected function getHeaderActions(): array
     {
         return [
-            // ViewAction::make(),
-            DeleteAction::make(),
+            // Actions\ViewAction::make(),
+            Actions\DeleteAction::make(),
         ];
+    }
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
     }
 }
