@@ -88,6 +88,7 @@ class PelangganResource extends Resource
                     ->selectablePlaceholder(false),
                 TextColumn::make('nominal_bayar')
                     ->searchable()
+                    ->money('idr', true)
                     ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('tgl_bayar')
                     ->searchable()
@@ -105,6 +106,7 @@ class PelangganResource extends Resource
                     ->searchable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
+            ->defaultSort('created_at', 'desc')
             ->filters([
                 //
             ])

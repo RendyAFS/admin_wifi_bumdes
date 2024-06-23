@@ -26,9 +26,9 @@ class ListPelanggans extends ListRecords
                 ->action(function () {
                     // Your logic to reset data
                     Pelanggan::query()->update([
-                        'nominal_bayar' => '',
+                        'nominal_bayar' => '0',
                         'tgl_bayar' => '',
-                        'keterangan' => '',
+                        'keterangan' => '-',
                         'status' => 'Belum Bayar'
                     ]);
 
