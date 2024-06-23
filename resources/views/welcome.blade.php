@@ -12,7 +12,9 @@
 </head>
 
 <body>
-    LANDING PAGE    
+    <div class="container">
+        ini Landing page
+    </div>
 
 
     {{-- Script --}}
