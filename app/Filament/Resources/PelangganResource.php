@@ -37,15 +37,21 @@ class PelangganResource extends Resource
                 Section::make('Data Pelanggan')
                     ->schema([
                         TextInput::make('nama_pelanggan')
+                            ->placeholder('Nama Lengkap...')
                             ->required()
                             ->maxLength(255),
                         TextInput::make('nominal_bayar')
+                            ->default('0')
+                            ->placeholder('Rp. -')
+                            ->numeric()
                             ->maxLength(255),
                         DatePicker::make('tgl_bayar')
+                            ->timezone('Asia/Jakarta')
+                            ->locale('ID')
                             ->native(false),
                     ])->columnSpan(1),
 
-                Section::make('Data Langganan')
+                Section::make('Data Pembayaran')
                     ->schema([
                         Select::make('status')
                             ->options([
@@ -56,6 +62,7 @@ class PelangganResource extends Resource
                             ->default('Belum Bayar')
                             ->native(false),
                         Textarea::make('keterangan')
+                            ->default('-')
                             ->rows(5)
                             ->cols(20),
                     ])->columnSpan(1)

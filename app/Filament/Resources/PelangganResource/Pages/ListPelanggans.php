@@ -22,27 +22,27 @@ class ListPelanggans extends ListRecords
     {
         return [
             Action::make('Reset')
-            ->icon('heroicon-m-arrow-path')
-            ->action(function () {
-                // Your logic to reset data
-                Pelanggan::query()->update([
-                    'nominal_bayar' => '',
-                    'tgl_bayar' => '',
-                    'keterangan' => '',
-                    'status' => 'Belum Bayar'
-                ]);
+                ->icon('heroicon-m-arrow-path')
+                ->action(function () {
+                    // Your logic to reset data
+                    Pelanggan::query()->update([
+                        'nominal_bayar' => '',
+                        'tgl_bayar' => '',
+                        'keterangan' => '',
+                        'status' => 'Belum Bayar'
+                    ]);
 
-                // Optionally return a response
-                Notification::make()
-                    ->title('Data berhasil tereset.')
-                    ->success()
-                    ->send();
-            })
-            ->color('danger')
-            ->requiresConfirmation()
-            ->modalHeading('Reset Data')
-            ->modalDescription('Apakah yakin reset data? data tidak bisa dikembalikan.')
-            ->modalSubmitActionLabel('Ya, reset data'),
+                    // Optionally return a response
+                    Notification::make()
+                        ->title('Data berhasil tereset.')
+                        ->success()
+                        ->send();
+                })
+                ->color('danger')
+                ->requiresConfirmation()
+                ->modalHeading('Reset Data')
+                ->modalDescription('Apakah yakin reset data? data tidak bisa dikembalikan.')
+                ->modalSubmitActionLabel('Ya, reset data'),
 
             Action::make('Download')
                 ->icon('heroicon-m-arrow-down-circle')
@@ -74,5 +74,10 @@ class ListPelanggans extends ListRecords
                 ->badge(Pelanggan::query()->where('status', 'Cicil')->count())
                 ->badgeColor('warning'),
         ];
+    }
+
+    public function getDefaultActiveTab(): string | int | null
+    {
+        return '';
     }
 }
