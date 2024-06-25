@@ -1,3 +1,47 @@
-#logo-navbar{
-    width: 10%;
+#logo-navbar {
+    width: 70px;
+    max-width: 70px;
+    margin-right: 152px;
 }
+
+#logo-iconnet {
+    width: 500px;
+    max-width: 500px;
+    margin-right: 100px;
+}
+
+.home {
+    margin-top: 100px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.home p {
+    padding-left: 100px;
+    padding-right: 50px;
+}
+
+/* .page-with-svg-background {
+    position: relative;
+    overflow: hidden;
+}
+
+.page-with-svg-background svg {
+    position: absolute;
+    width: 100%;
+    height: auto;
+}
+
+.page-with-svg-background svg:first-of-type {
+    top: 0;
+}
+
+.page-with-svg-background svg:last-of-type {
+    bottom: 0;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+} */
