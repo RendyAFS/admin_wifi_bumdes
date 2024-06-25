@@ -3,10 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\PelangganResource\Pages;
-use App\Filament\Resources\PelangganResource\RelationManagers;
 use App\Models\Pelanggan;
-use Filament\Actions\DeleteAction;
-use Filament\Forms;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
@@ -18,8 +15,8 @@ use Filament\Tables;
 use Filament\Tables\Columns\SelectColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Tables\Columns\Layout\Split;
+
 
 class PelangganResource extends Resource
 {
@@ -78,6 +75,7 @@ class PelangganResource extends Resource
                     ->sortable()
                     ->searchable(),
                 SelectColumn::make('status')
+                    ->label('Status')
                     ->options([
                         'Belum Bayar' => 'Belum Bayar',
                         'Sudah Bayar' => 'Sudah Bayar',
@@ -86,25 +84,22 @@ class PelangganResource extends Resource
                     ->sortable()
                     ->rules(['required'])
                     ->selectablePlaceholder(false),
-                TextColumn::make('nominal_bayar')
-                    ->searchable()
-                    ->money('idr', true)
-                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('tgl_bayar')
-                    ->searchable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                SelectColumn::make('status')
-                    ->options([
-                        'Belum Bayar' => 'Belum Bayar',
-                        'Sudah Bayar' => 'Sudah Bayar',
-                        'Cicil' => 'Cicil',
-                    ])
+                    ->label('Tanggal Bayar')
+                    ->visibleFrom('md')
                     ->sortable()
-                    ->rules(['required'])
-                    ->selectablePlaceholder(false),
-                TextColumn::make('keterangan')
+                    ->searchable(),
+                TextColumn::make('nominal_bayar')
+                    ->label('Nominal Bayar')
+                    ->visibleFrom('lg')
                     ->searchable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->money('idr', true),
+                TextColumn::make('keterangan')
+                    ->label('Keterangan')
+                    ->visibleFrom('xl')
+                    ->searchable(),
+
+
             ])
             ->defaultSort('created_at', 'desc')
             ->filters([

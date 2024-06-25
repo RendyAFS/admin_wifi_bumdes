@@ -4,7 +4,7 @@ namespace App\Filament\Resources\PelangganResource\Pages;
 
 use App\Filament\Resources\PelangganResource;
 use App\Models\Pelanggan;
-use Filament\Actions;
+use App\Models\Riwayat;
 use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 use Filament\Resources\Components\Tab;
@@ -24,7 +24,13 @@ class ListPelanggans extends ListRecords
             Action::make('Reset')
                 ->icon('heroicon-m-arrow-path')
                 ->action(function () {
-                    // Your logic to reset data
+                    // Retrieve all data from pelanggans table
+                    $pelangganData = Pelanggan::all()->makeHidden('id')->toArray();
+
+                    // Insert data into riwayats table
+                    Riwayat::insert($pelangganData);
+
+                    // Update pelanggans table with reset values
                     Pelanggan::query()->update([
                         'nominal_bayar' => '0',
                         'tgl_bayar' => '',
@@ -32,7 +38,7 @@ class ListPelanggans extends ListRecords
                         'status' => 'Belum Bayar'
                     ]);
 
-                    // Optionally return a response
+                    // Send success notification
                     Notification::make()
                         ->title('Data berhasil tereset.')
                         ->success()
@@ -43,7 +49,6 @@ class ListPelanggans extends ListRecords
                 ->modalHeading('Reset Data')
                 ->modalDescription('Apakah yakin reset data? data tidak bisa dikembalikan.')
                 ->modalSubmitActionLabel('Ya, reset data'),
-
             Action::make('Download')
                 ->icon('heroicon-m-arrow-down-circle')
                 ->url(fn () => route('download.pdf')),
