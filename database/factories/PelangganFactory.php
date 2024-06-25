@@ -15,15 +15,16 @@ class PelangganFactory extends Factory
      *
      * @return array<string, mixed>
      */
+    
     public function definition()
     {
         $faker = \Faker\Factory::create('id_ID'); // Set Faker locale to Indonesian
 
         return [
             'nama_pelanggan' => $faker->name,
-            'nominal_bayar' => (string) $faker->numberBetween(100000, 150000),
+            'nominal_bayar' => (string) $faker->numberBetween(0),
             'tgl_bayar' => $this->randomTglBayar(),
-            'status' => $faker->randomElement(['Sudah', 'Belum', 'Cicil']),
+            'status' => $faker->randomElement(['Sudah Bayar', 'Belum Bayar', 'Cicil']),
             'keterangan' => $faker->sentence(10),
         ];
     }
