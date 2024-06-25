@@ -1,43 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bumdes Gondo Bening</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    @vite('resources/css/landing-page.css')
-
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-</head>
-
-<body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="{{ Vite::asset('public/images/assets/logo-bumdes-t.png') }}" alt="Logo" id="logo-navbar">
-            </a>
+@section('content')
+    <div class="d-none d-md-flex justify-content-center align-items-center home">
+        <div class="">
+            <img src="{{ Vite::asset('public/images/assets/logo-iconnet-t.png') }}" alt="Logo" id="logo-iconnet">
         </div>
-    </nav>
-
-    {{-- Script --}}
-    @vite('resources/js/app.js')
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
-    </script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
-</body>
-
-</html>
+        <div class="mt-5">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eu semper nibh. Aenean eu dui vulputate,
+                vehicula nunc eu, eleifend neque. Sed ac sagittis leo. Aenean arcu orci, fermentum nec commodo ut, pharetra
+                ullamcorper felis. Vivamus id magna in urna laoreet efficitur. Nulla tristique auctor auctor. In molestie
+                vel nunc finibus bibendum.
+            </p>
+        </div>
+    </div>
+    <div class="page-with-svg-background">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#192857" fill-opacity="1"
+                d="M0,192L80,186.7C160,181,320,171,480,181.3C640,192,800,224,960,218.7C1120,213,1280,171,1360,149.3L1440,128L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z">
+            </path>
+        </svg>
+        <svg style="margin-top: -1px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#192857" fill-opacity="1" d="M0,64L0,160L1440,160L1440,0L0,0L0,0Z"></path>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="#192857" fill-opacity="1"
+                d="M0,192L80,186.7C160,181,320,171,480,181.3C640,192,800,224,960,218.7C1120,213,1280,171,1360,149.3L1440,128L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z">
+            </path>
+        </svg>
+        <div class="content">
+            <div class="mt-5">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eu semper nibh. Aenean eu dui vulputate,
+                    vehicula nunc eu, eleifend neque. Sed ac sagittis leo. Aenean arcu orci, fermentum nec commodo ut,
+                    pharetra
+                    ullamcorper felis. Vivamus id magna in urna laoreet efficitur. Nulla tristique auctor auctor. In
+                    molestie
+                    vel nunc finibus bibendum.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eu semper nibh. Aenean eu dui vulputate,
+                    vehicula nunc eu, eleifend neque. Sed ac sagittis leo. Aenean arcu orci, fermentum nec commodo ut,
+                    pharetra
+                    ullamcorper felis. Vivamus id magna in urna laoreet efficitur. Nulla tristique auctor auctor. In
+                    molestie
+                    vel nunc finibus bibendum.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eu semper nibh. Aenean eu dui vulputate,
+                    vehicula nunc eu, eleifend neque. Sed ac sagittis leo. Aenean arcu orci, fermentum nec commodo ut,
+                    pharetra
+                    ullamcorper felis. Vivamus id magna in urna laoreet efficitur. Nulla tristique auctor auctor. In
+                    molestie
+                    vel nunc finibus bibendum.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eu semper nibh. Aenean eu dui vulputate,
+                    vehicula nunc eu, eleifend neque. Sed ac sagittis leo. Aenean arcu orci, fermentum nec commodo ut,
+                    pharetra
+                    ullamcorper felis. Vivamus id magna in urna laoreet efficitur. Nulla tristique auctor auctor. In
+                    molestie
+                    vel nunc finibus bibendum.
+                </p>
+            </div>
+        </div>
+    </div>
+@endsection
