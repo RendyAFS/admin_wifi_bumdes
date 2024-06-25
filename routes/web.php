@@ -18,5 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Data Pelanggan
 Route::get('/download-pdf', [PelangganController::class, 'downloadpdf'])->name('download.pdf');
 Route::get('/view-pdf', [PelangganController::class, 'viewpdf'])->name('view.pdf');
+
+// Data Riwayat Pelanggan
+Route::get('/download-riwayat-pdf', [PelangganController::class, 'downloadriwayatpdf'])->name('download-riwayat.pdf');
+Route::get('/view-riwayat-pdf', [PelangganController::class, 'viewriwayatpdf'])->name('view-riwayat.pdf');

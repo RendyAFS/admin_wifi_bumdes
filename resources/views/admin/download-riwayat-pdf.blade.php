@@ -59,7 +59,7 @@
 </head>
 
 <body>
-    <h1>Data Bulanan Pembayaran Wifi</h1>
+    <h1>Riwayat - Data Bulanan Pembayaran Wifi</h1>
     <table class="table table-bordered">
         <thead>
             <tr>
