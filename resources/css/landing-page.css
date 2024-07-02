@@ -1,3 +1,11 @@
+.p {
+    color: white;
+}
+
+.b {
+    color: #0B8EAE;
+}
+
 #logo-navbar {
     width: 70px;
     max-width: 70px;
@@ -11,7 +19,8 @@
 }
 
 .home {
-    margin-top: 100px;
+    margin-top: 150px;
+    margin-bottom: 100px;
     padding-left: 100px;
     padding-right: 100px;
 }
@@ -21,27 +30,65 @@
     padding-right: 50px;
 }
 
-/* .page-with-svg-background {
-    position: relative;
-    overflow: hidden;
+.gradient-bg {
+    margin-top: -50px;
+    padding: 50px 0;
+    background: linear-gradient(90deg, #192857, #0B8EAE);
 }
 
-.page-with-svg-background svg {
-    position: absolute;
-    width: 100%;
-    height: auto;
+.card-bg {
+    width: 70%;
+    padding: 30px;
+    border-radius: 10px;
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.25);
 }
 
-.page-with-svg-background svg:first-of-type {
-    top: 0;
+.card-plynn {
+    width: 70%;
+    padding: 30px;
+    border-radius: 10px;
+    display: flex;
+    background-color: #fff;
 }
 
-.page-with-svg-background svg:last-of-type {
-    bottom: 0;
+.card-bnwth {
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background: url('../../public/images/assets/card.png') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.content {
-    position: relative;
-    z-index: 1;
-    padding: 20px;
-} */
+.card-bwh {
+    width: 25%;
+    border-radius: 5px;
+    justify-content: center;
+    background-color: #fff;
+}
+
+.btn-primary {
+    background-color: #0B8EAE;
+    border: none;
+}
+
+.bnwth {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.hr-light {
+    border: 2px solid #fff;
+    width: 100px;
+    margin: 10px auto;
+}
+
+.hr-blue {
+    border: 2px solid #0B8EAE;
+    width: 100px;
+    margin: 10px auto;
+}
